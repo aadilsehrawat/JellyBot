@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}HOME{% endblock title %}
 
@@ -17,14 +18,17 @@
     #wrapper{
       padding: 2rem 1rem;
     }
+    #section-2{
+      padding-top: 2rem;
+    }
   }
 </style>
 {% endblock styles %}
 
 {% block content %}
 <section class="text-gray-600 body-font">
-    <div id="wrapper" class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap w-full mb-20">
+    <div id="wrapper" class="container px-5 pt-24 mx-auto">
+      <div class="flex flex-wrap w-full">
         <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
           <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
             {% if user.is_authenticated %}
@@ -40,38 +44,48 @@
           <div class="h-1 w-20 bg-indigo-500 rounded"></div>
         </div>
         <p class="lg:w-1/2 w-full leading-relaxed text-gray-500" style="text-align: justify; text-justify: inter-word;">
-            <b> Welcome to our Event Management website! </b><br>
+            <span style="font-size: 17px"><b> JellyBot - Drowning Detection and Rescue Operations website! </b></span><br>
             <span>
-            Our experienced team is dedicated to creating engaging and unforgettable experiences for our students, staff, and faculty.
-            Whether it's a concert, conference, or sporting event, we provide top-notch event management services that meet your needs and exceed your expectations.
-            Browse our site to learn about our services, upcoming events, and how to get involved in the planning process. <br><br>
-            Let's make your next event a memorable one!
+              <br>
+              Welcome to our web-app! <br>
+              Are you looking for a comprehensive solution to keep your loved ones safe near water? <br>
+              Whether you're a parent, a lifeguard, or just someone who loves spending time by the pool or beach, JellyBot is the app you need. <br><br>
+              Look no further! Our app offers four powerful modules to help detect potential dangers and plan for rescue.
+              With human detection, pose detection, drown detection, and rescue planning, we've got you covered from every angle.
+              Don't take any chances with water safety - try our app today and enjoy peace of mind knowing your loved ones are protected.
             </span>
         </p>
-      </div>
-      {% comment %} <p class="mb-4 pl-1" style="font-size: 21px; font-weight: 500">Latest Events:</p>
-      <div class="flex flex-wrap -m-4">
-        {% for event in latest_events %}
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div id="event-card" class="bg-gray-100 p-6 rounded-lg">
-            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{event.cover.url}}" onerror="this.onerror=null; this.src='https://www.littlethings.info/wp-content/uploads/2014/04/dummy-image-grey-e1398449111870.jpg';" alt="Event Cover Image" class="img-responsive" />
-            <div class="flex" style="justify-content: flex-end">
-                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">&#128197; {{event.date}}</h3>
-            </div>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{event.name}}</h2>
-            <p class="leading-relaxed text-base">
-                {{event.description|striptags|truncatewords_html:20}}
-            </p>
-            <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0" href="#">View Event Details
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                </svg>
-            </a>
-          </div>
+    </div>
+  </section>
+  <section class="text-gray-600 body-font">
+    <div id="section-2" class="container px-5 py-24 mx-auto flex flex-wrap">
+      <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
+        <div class="w-full sm:p-4 px-4 mb-6">
+          <h1 class="title-font font-medium text-xl mb-2 text-gray-900">We believe safety should be a top priority for everyone.</h1>
+          <div class="leading-relaxed">
+            We use cutting-edge technology to detect potential dangers and provide actionable insights to help prevent accidents before they happen. 
+            With <b>JellyBot</b>, you can rest easy knowing that you're always one step ahead when it comes to water safety.</div>
         </div>
-        {% endfor %}
-      </div> {% endcomment %}
+        <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+          <h2 class="title-font font-medium text-3xl text-gray-900">2.6K</h2>
+          <p class="leading-relaxed">Users</p>
+        </div>
+        <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+          <h2 class="title-font font-medium text-3xl text-gray-900">1.7K</h2>
+          <p class="leading-relaxed">Subscribes</p>
+        </div>
+        <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+          <h2 class="title-font font-medium text-3xl text-gray-900">35</h2>
+          <p class="leading-relaxed">Runs Today</p>
+        </div>
+        <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+          <h2 class="title-font font-medium text-3xl text-gray-900">4</h2>
+          <p class="leading-relaxed">Actions</p>
+        </div>
+      </div>
+      <div class="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
+        <img class="object-cover object-center w-full h-full" src="https://i.ibb.co/NCYDPWT/JellyBot.png" alt="JellyBot">
+      </div>
     </div>
   </section>
 {% endblock content %}
