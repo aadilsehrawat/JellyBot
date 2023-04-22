@@ -1,4 +1,4 @@
 __pycache__/
 db.sqlite3
-images/
 secrets.env
+action_cover_images/
