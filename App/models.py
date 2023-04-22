@@ -5,7 +5,7 @@ class Actions(models.Model):
     action = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     performed = models.IntegerField(default=0)
-    cover = models.FileField(upload_to='images/', blank=True, null=True)
+    cover_image = models.FileField(upload_to='images/action_cover/', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Action'
