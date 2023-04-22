@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}HOME{% endblock title %}
+
+{% block styles %}
+<style>
+  #event-card{
+    transition: transform 0.2s ease-in-out;
+  }
+
+  #event-card:hover{
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+      transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    #wrapper{
+      padding: 2rem 1rem;
+    }
+  }
+</style>
+{% endblock styles %}
+
+{% block content %}
+<section class="text-gray-600 body-font">
+    <div id="wrapper" class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20">
+        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+            {% if user.is_authenticated %}
+              {% if user.first_name %}
+                Hi {{user.first_name|capfirst}},
+                {% else %}
+                Hi there,
+                {% endif %}
+            {% else %}
+                Hi there,
+            {% endif %} 
+        </h1>
+          <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+        </div>
+        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500" style="text-align: justify; text-justify: inter-word;">
+            <b> Welcome to our Event Management website! </b><br>
+            <span>
+            Our experienced team is dedicated to creating engaging and unforgettable experiences for our students, staff, and faculty.
+            Whether it's a concert, conference, or sporting event, we provide top-notch event management services that meet your needs and exceed your expectations.
+            Browse our site to learn about our services, upcoming events, and how to get involved in the planning process. <br><br>
+            Let's make your next event a memorable one!
+            </span>
+        </p>
+      </div>
+      {% comment %} <p class="mb-4 pl-1" style="font-size: 21px; font-weight: 500">Latest Events:</p>
+      <div class="flex flex-wrap -m-4">
+        {% for event in latest_events %}
+        <div class="xl:w-1/4 md:w-1/2 p-4">
+          <div id="event-card" class="bg-gray-100 p-6 rounded-lg">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{event.cover.url}}" onerror="this.onerror=null; this.src='https://www.littlethings.info/wp-content/uploads/2014/04/dummy-image-grey-e1398449111870.jpg';" alt="Event Cover Image" class="img-responsive" />
+            <div class="flex" style="justify-content: flex-end">
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">&#128197; {{event.date}}</h3>
+            </div>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{event.name}}</h2>
+            <p class="leading-relaxed text-base">
+                {{event.description|striptags|truncatewords_html:20}}
+            </p>
+            <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0" href="#">View Event Details
+                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div> {% endcomment %}
+    </div>
+  </section>
+{% endblock content %}

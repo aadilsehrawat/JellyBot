@@ -1,0 +1,114 @@
+<style>
+#navbarLinks {
+  display: none;
+}
+
+#navbarLinks a{
+  margin-right: 1.25rem;
+}
+
+.navbar-links {
+  animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@media (min-width: 768px) {
+  #navbarLinks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+#nav-container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #navbarLinks{
+    width: 50%;
+  }
+
+  #navbarLinks.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1;
+  }
+  
+  #separator{
+    display: none;
+  }
+
+  #navbarLinks.show a {
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    border-bottom: 1px solid #444;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+    margin-right: 0;
+  }
+}
+</style>
+
+<header class="text-gray-400 bg-gray-900 body-font">
+  <div id="nav-container" class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a href="{% url 'Home' %}" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+      <img style="width: 30px" src="https://static-00.iconduck.com/assets.00/jellyseerr-icon-512x492-iwuo1nft.png">
+      <span class="ml-3 text-xl">JellyBot</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <button id="navbarToggle" class="navbar-toggle">
+        <span class="icon-bar"><img style="width: 30px;" src="https://assets.stickpng.com/images/588a64e0d06f6719692a2d10.png"></span>
+      </button>
+
+      <div id="navbarLinks">
+        <a href="{% url 'Home' %}">
+          <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base md:mt-0">Home</button>
+        </a>
+        <a href="{% url 'Contact' %}" class=" hover:text-white">Contact-Us</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'Messages' %}" class=" hover:text-white">Contact-Messages</a>
+        {% endif %}
+        <a href="{% url 'Team' %}" class="hover:text-white">Team</a>
+          <a href="{% url 'Actions' %}">
+          <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base md:mt-0">Actions
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+const navbarToggle = document.getElementById('navbarToggle');
+const navbarLinks = document.getElementById('navbarLinks');
+navbarToggle.addEventListener('click', () => {
+  navbarLinks.classList.toggle('show');
+  navbarLinks.classList.toggle('navbar-links');
+});
+</script>
