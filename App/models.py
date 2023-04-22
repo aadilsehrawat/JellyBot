@@ -5,7 +5,7 @@ class Actions(models.Model):
     action = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     performed = models.IntegerField(default=0)
-    cover_image = models.FileField(upload_to='images/action_cover/', blank=True, null=True)
+    cover_image = models.FileField(upload_to='action_cover_images/', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Action'
@@ -28,8 +28,8 @@ class ContactUs(models.Model):
     
 class PerformLogs(models.Model):
     action = models.ForeignKey(Actions, on_delete=models.CASCADE)
-    input_file = models.FileField(upload_to='input_file/', blank=True, null=True)
-    output_file = models.FileField(upload_to='output_file/', blank=True, null=True)
+    input_file = models.FileField(upload_to='action_input_file/', blank=True, null=True)
+    output_file = models.FileField(upload_to='action_output_file/', blank=True, null=True)
 
     class Meta:
         verbose_name = "Perform Logs"
