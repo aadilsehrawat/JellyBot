@@ -17,11 +17,11 @@ def actions(request):
 
 def action(request, action_id):
     action = Actions.objects.get(id=action_id)
-    return render(request, 'App/action.html', {'action': action, 'current_url': request.build_absolute_uri()})
+    return render(request, 'App/action_details.html', {'action': action, 'current_url': request.build_absolute_uri()})
 
 def perform(request, action_id):
     action = Actions.objects.get(id=action_id)
-    return render(request, 'App/perform.html', {'action': action})
+    return render(request, 'App/perform_actions.html', {'action': action})
 
 def contact(request):
     if request.method == 'POST':
