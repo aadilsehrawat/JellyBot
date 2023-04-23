@@ -12,11 +12,11 @@ def home(request):
     return render(request, 'App/home.html')
 
 def actions(request):
-    actions = Actions.objects.all()[:4]
+    actions = Actions.objects.all().order_by('action_order')[:4]
     return render(request, 'App/actions.html', {'actions': actions})
 
 def action(request, action_id):
-    action = Actions.objects.get(id=action_id).order_by('action_order')
+    action = Actions.objects.get(id=action_id)
     return render(request, 'App/action_details.html', {'action': action, 'current_url': request.build_absolute_uri()})
 
 def perform(request, action_id):
