@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Actions(models.Model):
     action = models.CharField(max_length=100)
+    action_order = models.IntegerField(default=0)
     description = models.CharField(max_length=100)
     performed = models.IntegerField(default=0)
     cover_image = models.FileField(upload_to='action_cover_images/', blank=True, null=True)

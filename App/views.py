@@ -16,7 +16,7 @@ def actions(request):
     return render(request, 'App/actions.html', {'actions': actions})
 
 def action(request, action_id):
-    action = Actions.objects.get(id=action_id)
+    action = Actions.objects.get(id=action_id).order_by('action_order')
     return render(request, 'App/action_details.html', {'action': action, 'current_url': request.build_absolute_uri()})
 
 def perform(request, action_id):
