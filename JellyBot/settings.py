@@ -83,17 +83,12 @@ if os.environ.get('VERCEL_ENV') == 'production':
     print('Using Production Database')
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'jelly-bot' ,
-            'USER': 'ors3wevrggjrtdhpaob6' ,
-            'PASSWORD': 'pscale_pw_xvKC76WdRmwJpVi3fJlAilX0OVgbRljObfkIAKzbpq4' ,
-            'HOST': 'aws.connect.psdb.cloud',
-            'PORT': '3306',
-            'OPTIONS': {
-                'ssl': {
-                    'cert': '/etc/pki/tls/certs/ca-bundle.crt',
-                },
-            },
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'railway',
+            'USER': 'postgres',
+            'PASSWORD': 'eS53t7sRyDZQF9tdEuPb',
+            'HOST': 'containers-us-west-182.railway.app',
+            'PORT': '7961',
         }
     }
 
