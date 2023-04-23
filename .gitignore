@@ -3,3 +3,4 @@ db.sqlite3
 images/
 secrets.env
 action_cover_images/
+action_media/
