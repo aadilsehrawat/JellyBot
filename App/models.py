@@ -14,6 +14,13 @@ class Actions(models.Model):
     def __str__(self):
         return self.action 
     
+class ActionMedia(models.Model):
+    action = models.ForeignKey(Actions, on_delete=models.CASCADE)
+    media = models.FileField(upload_to='action_media/', blank=True, null=True)
+
+    def __str__(self):
+        return str(self.action)
+    
 class ContactUs(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
