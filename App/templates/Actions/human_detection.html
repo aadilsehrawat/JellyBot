@@ -1,6 +1,53 @@
+<style>
+  #action-media-wrapper{
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+  }
+
+  #action-media{
+    height: 526px;
+  }
+
+  #action-media-and-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+  }
+
+  @media screen and (max-width: 768px) {
+    #action-media-and-text{
+      margin-left: 0;
+      margin-top: 10%;
+    }
+
+    #action-media-wrapper{
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10% 0 0 0;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    #action-media{
+      height: 350px;
+    }
+    #wrapper{
+      padding-top: 5%;
+    }
+    #working-example{
+      margin-top: 10%;
+      margin-bottom: 0;
+      text-align: center;
+      border-top: 5px solid rgba(0, 0, 0, 0.5);
+      padding-top: 5%;
+    }
+  }
+</style>
+
 <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto flex flex-wrap">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-526">{{action.action}}</h1>
+    <div id="wrapper" class="container px-5 py-24 mx-auto flex flex-wrap">
+      <h1 class="title-font sm:text-4xl text-3xl mb-10 font-medium text-gray-526">{{action.action}}</h1>
       <div class="flex flex-wrap w-full">
         <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
           <div class="flex relative pb-12">
@@ -23,7 +70,8 @@
             </div>
             <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                <circle cx="12" cy="5" r="3"></circle>
+                <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
               </svg>
             </div>
             <div class="flex-grow pl-4">
@@ -52,8 +100,8 @@
             </div>
             <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
+                <circle cx="12" cy="5" r="3"></circle>
+                <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
               </svg>
             </div>
             <div class="flex-grow pl-4">
@@ -74,16 +122,14 @@
             </div>
           </div>
         </div>
-        {% comment %} <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="https://dummyimage.com/1200x500" alt="step"> {% endcomment %}
-        <div>
-          <video width="640" height="360" controls>
-            <source src="path/to/video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video width="640" height="360" controls>
-            <source src="path/to/video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>    
+        <div id="action-media-and-text">
+          <h2 id="working-example" class="text-gray-550 text-lg mb-4 font-medium title-font">Working Example:</h2>
+          <div id="action-media-wrapper">
+            <video id="action-media" controls>
+              <source src="{{action_media.media.url}}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
     </div>
