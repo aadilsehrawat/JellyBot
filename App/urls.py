@@ -7,6 +7,7 @@ urlpatterns = [
     path('actions/', actions, name='Actions'),
     path('action/<int:action_id>/', action, name='Action'),
     path('perform/action/<int:action_id>/', perform, name='Perform'),
+    path('perform/action/logs/', perform_log, name='Logs'),
     path('contact/', contact, name='Contact'),
     path('contact/messages/', contact_messages, name='Messages'),
     path('team/', team, name='Team'),
