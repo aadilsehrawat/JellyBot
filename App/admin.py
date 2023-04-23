@@ -11,6 +11,10 @@ class ContactUsAdmin(admin.ModelAdmin):
 class PerformLogsAdmin(admin.ModelAdmin):
     list_display = ('action', 'input_file', 'output_file')
 
+class ActionMediaAdmin(admin.ModelAdmin):
+    list_display = ('action', 'media')
+
 admin.site.register(Actions, ActionAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(PerformLogs, PerformLogsAdmin)
+admin.site.register(ActionMedia, ActionMediaAdmin)
