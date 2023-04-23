@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Perform Logs{% endblock title %}
+
+{% block styles %}
+<style>
+    body{
+        background-color: rgba(24, 28, 36, 0.8);
+    }
+    #total{
+        font-size: 20px; 
+        color: white
+    }
+    #contact-messages{
+        font-size: 25px; 
+        color: white
+    }
+
+    @media (max-width: 768px) {
+        #wrapper{
+            padding: 0.5rem;
+        }
+        #no-attendees{
+            padding: 0;
+            margin: 0;
+        }
+        #total{
+            padding: 0;
+            margin: 0 0 0 10px;
+        }
+        #contact-messages{
+            padding: 0;
+            margin: 0 0 25px 10px;
+        }
+    }
+</style>
+{% endblock styles %}
+
+{% block content %}
+<p id="contact-messages" class="pl-20 mt-20 mb-10">Action Perform Logs:</p>
+{% if not count == 0 %}
+    <p id="total" class="pl-20 mt-20 mb-5">Total Actions Performed: {{count}}</p>
+{% endif %}
+
+<div id="wrapper" class="pl-20 pr-20">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            {% if not count == 0 %}
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Action Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action Description
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action Perform Count
+                        </th>
+                    </tr>
+                </thead>
+            {% else %}
+                <p id="no-attendees" style="font-size: 25px; font-weight: 600; color: rgba(255, 255, 255, 0.7)" class="text-center pl-20 mt-20 mb-20">No actions have been performed yet!</p>
+            {% endif %}
+            <tbody>
+                {% for action in actions %}
+                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ action.action }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ action.description }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ action.performed }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}
