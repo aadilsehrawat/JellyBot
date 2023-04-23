@@ -79,42 +79,32 @@ WSGI_APPLICATION = 'JellyBot.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# if os.environ.get('VERCEL_ENV') == 'production':
-#     print('Using Production Database')
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'jelly-bot' ,
-#         'USER': 'ors3wevrggjrtdhpaob6' ,
-#         'PASSWORD': 'pscale_pw_xvKC76WdRmwJpVi3fJlAilX0OVgbRljObfkIAKzbpq4' ,
-#         'HOST': 'aws.connect.psdb.cloud',
-#         'PORT': '3306',
-#         # 'OPTIONS': {
-#         #     'ssl': {
-#         #         'crt': '/etc/pki/tls/certs/ca-bundle.crt',
-#         #     },
-#         # },
-#     }
-# }
-# # DATABASES = {
-# #     'default': {
-# #         'ENGINE': 'django.db.backends.postgresql',
-# #         'NAME': os.environ.get('PLANETSCALE_DB') ,
-# #         'USER': os.environ.get('PLANETSCALE_DB_USERNAME') ,
-# #         'PASSWORD': os.environ.get('PLANETSCALE_DB_PASSWORD') ,
-# #         'HOST': os.environ.get('PLANETSCALE_DB_HOST'),
-# #         'PORT': '7961',
-# #     }
-# # }
+if os.environ.get('VERCEL_ENV') == 'production':
+    print('Using Production Database')
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'jelly-bot' ,
+            'USER': 'ors3wevrggjrtdhpaob6' ,
+            'PASSWORD': 'pscale_pw_xvKC76WdRmwJpVi3fJlAilX0OVgbRljObfkIAKzbpq4' ,
+            'HOST': 'aws.connect.psdb.cloud',
+            'PORT': '3306',
+            'OPTIONS': {
+                'ssl': {
+                    'cert': '/etc/pki/tls/certs/ca-bundle.crt',
+                },
+            },
+        }
+    }
 
-# else:
-#     print('Using Local Database')
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
+else:
+    print('Using Local Database')
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
