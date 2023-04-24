@@ -6,7 +6,7 @@ class Actions(models.Model):
     action_order = models.IntegerField(default=0)
     description = models.CharField(max_length=100)
     performed = models.IntegerField(default=0)
-    cover_image = models.FileField(upload_to='action_cover_images/', blank=True, null=True)
+    cover_image_url = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Action'
@@ -17,7 +17,7 @@ class Actions(models.Model):
     
 class ActionMedia(models.Model):
     action = models.ForeignKey(Actions, on_delete=models.CASCADE)
-    media = models.FileField(upload_to='action_media/', blank=True, null=True)
+    video_url = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return str(self.action)
