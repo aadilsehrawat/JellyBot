@@ -4,10 +4,6 @@
 
 {% block styles %}
 <style>
-    {% comment %} #actions-wrapper-container{
-        margin-top: 50px;
-    } {% endcomment %}
-
     #action-wrapper{
         margin: 5%;
     }
@@ -44,10 +40,10 @@
         <p class="mb-4 pl-1" style="font-size: 21px; font-weight: 500">Available Actions:</p>
         <div class="flex flex-wrap -m-4">
             {% for action in actions %}
-            <div class="xl:w-1/4 md:w-1/2 p-4">
+            <div class="xl:w-1/4 md:w-1/2 p-4" style="margin: auto">
                 <div id="event-card" class="bg-gray-100 p-6 rounded-lg">
                     {% if action.cover_image_url %}
-                        <img class="h-40 rounded w-full object-center mb-6" src="{{action.cover_image_url}}" onerror="this.onerror=null; this.src='https://www.littlethings.info/wp-content/uploads/2014/04/dummy-image-grey-e1398449111870.jpg';" alt="Event Cover Image" class="img-responsive" />
+                        <img class="rounded w-full object-center mb-6" src="{{action.cover_image_url}}" onerror="this.onerror=null; this.src='https://www.littlethings.info/wp-content/uploads/2014/04/dummy-image-grey-e1398449111870.jpg';" alt="Event Cover Image" class="img-responsive" />
                     {% endif %}
                 <div id="performed" class="flex">
                     <h3 class="tracking-widest text-gray-600 text-xs font-medium title-font mr-1">Performed: 
