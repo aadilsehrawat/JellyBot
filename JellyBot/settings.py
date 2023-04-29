@@ -143,6 +143,9 @@ STATIC_DIRS = os.path.join(BASE_DIR, 'static')
 if os.environ.get('VERCEL_ENV') == 'production':
     MEDIA_ROOT = os.path.join(BASE_DIR, '/tmp/media')
     MEDIA_URL = '/tmp/media/'
+else:
+    MEDIA_ROOT = 'media/'
+    MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
