@@ -3,18 +3,17 @@ from .models import *
 
 # Register your models here.
 class ActionAdmin(admin.ModelAdmin):
-    list_display = ('action', 'description', 'performed')
+    list_display = ('action', 'description', 'times_performed')
 
 class ContactUsAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'message')
 
-class PerformLogsAdmin(admin.ModelAdmin):
-    list_display = ('action', 'input_file', 'output_file')
-
-class ActionMediaAdmin(admin.ModelAdmin):
-    list_display = ('action', 'media')
+class ActionStepsAdmin(admin.ModelAdmin):
+    list_display = ('action',)
+# class PerformLogsAdmin(admin.ModelAdmin):
+#     list_display = ('action', 'input_file', 'output_file')
 
 admin.site.register(Actions, ActionAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
-admin.site.register(PerformLogs, PerformLogsAdmin)
-admin.site.register(ActionMedia, ActionMediaAdmin)
+admin.site.register(ActionSteps, ActionStepsAdmin)
+# admin.site.register(PerformLogs, PerformLogsAdmin)
