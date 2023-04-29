@@ -21,16 +21,17 @@ def action(request, action_id):
 
 def perform(request, action_id):
     action = Actions.objects.get(id=action_id)
-    action.performed += 1
+    steps = ActionSteps.objects.get(action=action)
+    print(steps.step1)
+    action.times_performed += 1
     action.save()
-    action_media = ActionMedia.objects.filter(action=action).first()
-    return render(request, 'App/perform_action.html', {'action': action, 'action_media': action_media})
+    return render(request, 'App/action.html', {'action': action, 'steps': steps})
 
 def perform_log(request):
     actions = Actions.objects.all()
     count=0
     for action in actions:
-        count+=action.performed
+        count+=action.times_performed
     return render(request, 'App/perform_logs.html', {'actions': actions, 'count': count})
 
 def contact(request):
