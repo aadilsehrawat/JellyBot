@@ -84,11 +84,11 @@ if os.environ.get('VERCEL_ENV') == 'production':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'railway',
-            'USER': 'postgres',
-            'PASSWORD': 'eS53t7sRyDZQF9tdEuPb',
-            'HOST': 'containers-us-west-182.railway.app',
-            'PORT': '7961',
+            'NAME': os.environ.get('PGDATABASE'),
+            'USER': os.environ.get('PGUSER'),
+            'PASSWORD': os.environ.get('PGPASSWORD'),
+            'HOST': os.environ.get('PGHOST'),
+            'PORT': os.environ.get('PGPORT'),
         }
     }
 
