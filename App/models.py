@@ -6,9 +6,9 @@ class Actions(models.Model):
     action = models.CharField(max_length=100)
     description = models.CharField(max_length=100, default='No description provided yet!')
     times_performed = models.IntegerField(default=0)
-    cover_image = models.FileField(upload_to='action_cover_images/', blank=True, null=True)
+    cover_image = models.FileField(upload_to='media/action_cover_images/', blank=True, null=True)
     cover_image_url = models.CharField(max_length=100, blank=True, null=True)
-    video = models.FileField(upload_to='action_video/', blank=True, null=True)
+    video = models.FileField(upload_to='media/action_video/', blank=True, null=True)
     video_url = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
