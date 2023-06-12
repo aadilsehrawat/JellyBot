@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'storages',
     'App',
 ]
 
@@ -137,15 +138,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-STATIC_DIRS = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = 'media/'
+STATIC_URL = '/static/'
+MEDIA_ROOT = '/media/'
 
 if os.environ.get('VERCEL_ENV') == 'production':
-    MEDIA_ROOT = os.path.join(BASE_DIR, '/tmp/media')
-    MEDIA_URL = '/tmp/media/'
-else:
-    MEDIA_ROOT = 'media/'
-    MEDIA_URL = 'media/'
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
+    GOOGLE_APPLICATION_CREDENTIALS = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
