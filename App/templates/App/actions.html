@@ -42,8 +42,8 @@
             {% for action in actions %}
             <div class="xl:w-1/4 md:w-1/2 p-4" style="margin: auto">
                 <div id="event-card" class="bg-gray-100 p-6 rounded-lg">
-                    {% if action.cover_image_url %}
-                        <img class="rounded w-full object-center mb-6" src="{{action.cover_image_url}}" onerror="this.onerror=null; this.src='https://www.littlethings.info/wp-content/uploads/2014/04/dummy-image-grey-e1398449111870.jpg';" alt="Event Cover Image" class="img-responsive" />
+                    {% if action.cover_image.url %}
+                        <img class="rounded w-full object-center mb-6" src="{{action.cover_image.url}}" onerror="this.onerror=null; this.src='https://www.littlethings.info/wp-content/uploads/2014/04/dummy-image-grey-e1398449111870.jpg';" alt="Event Cover Image" class="img-responsive" />
                     {% endif %}
                 <div id="performed" class="flex">
                     <h3 class="tracking-widest text-gray-600 text-xs font-medium title-font mr-1">Performed: 
