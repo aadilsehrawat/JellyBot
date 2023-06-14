@@ -37,9 +37,9 @@
 {% endblock styles %}
 
 {% block content %}
-<p id="contact-messages" class="pl-20 mt-20 mb-10">Action Perform Logs:</p>
+<p id="contact-messages" class="pl-20 mt-20 mb-10">Action Visit Logs:</p>
 {% if not count == 0 %}
-    <p id="total" class="pl-20 mt-20 mb-5">Total Actions Performed: {{count}}</p>
+    <p id="total" class="pl-20 mt-20 mb-5">Total Actions Visit Count: {{count}}</p>
 {% endif %}
 
 <div id="wrapper" class="pl-20 pr-20">
@@ -55,12 +55,12 @@
                             Action Description
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Action Perform Count
+                            Action Visits Count
                         </th>
                     </tr>
                 </thead>
             {% else %}
-                <p id="no-attendees" style="font-size: 25px; font-weight: 600; color: rgba(255, 255, 255, 0.7)" class="text-center pl-20 mt-20 mb-20">No actions have been performed yet!</p>
+                <p id="no-attendees" style="font-size: 25px; font-weight: 600; color: rgba(255, 255, 255, 0.7)" class="text-center pl-20 mt-20 mb-20">No actions have been visted yet!</p>
             {% endif %}
             <tbody>
             {% if not count == 0 %}

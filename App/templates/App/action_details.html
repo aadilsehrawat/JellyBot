@@ -31,12 +31,12 @@
         </h1>
         <div id="action-details">
           <p class="mb-8 leading-relaxed" style="text-align: justify; text-justify: inter-word;">{{action.description}}</p>
-          <p style="text-align: left"> <b> Action Performed: </b> <br> 
-            This action has been performed <b>{{action.times_performed}}</b> times till date.</p>
+          <p style="text-align: left"> <b> Times Visited: </b> <br> 
+            This action has been visited <b>{{action.times_performed}}</b> times till date.</p>
         <br>
           <div class="flex justify-center">
               <a href="{% url 'Perform' action.id %}"><button class="mr-5 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                <img style="width: 26px" class="mr-3" src="https://static-00.iconduck.com/assets.00/checklist-illustration-408x512-gzi4vxvp.png">Perform</button></a>
+                <img style="width: 26px" class="mr-3" src="https://static-00.iconduck.com/assets.00/checklist-illustration-408x512-gzi4vxvp.png">Explore</button></a>
             <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg">
               <img style="width: 26px" class="mr-3 mt-1" src="https://static-00.iconduck.com/assets.00/share-boxed-icon-512x449-4tdrlvwm.png">Share</button>
             <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
