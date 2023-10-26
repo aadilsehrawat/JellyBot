@@ -84,10 +84,10 @@ if os.environ.get('VERCEL_ENV') == 'production':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'railway',
-            'USER': 'postgres',
-            'PASSWORD': 'eS53t7sRyDZQF9tdEuPb',
-            'HOST': 'containers-us-west-182.railway.app',
+            'NAME': 'verceldb',
+            'USER': 'default',
+            'PASSWORD': 'znv0xrcA6TFl',
+            'HOST': 'ep-bitter-darkness-44791165-pooler.us-east-1.postgres.vercel-storage.com',
             'PORT': '7961',
         }
     }
