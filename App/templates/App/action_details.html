@@ -21,8 +21,8 @@
 <section class="text-gray-600 body-font">
     <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-        {% if action.cover_image.url %}
-          <img class="object-cover object-center rounded" style="width: 720px; max-height: 600px" alt="hero" src="{{action.cover_image.url}}" onerror="this.onerror=null; this.src='https://www.littlethings.info/wp-content/uploads/2014/04/dummy-image-grey-e1398449111870.jpg';" alt="action Cover Image" class="img-responsive" />
+        {% if action.cover_image_url %}
+          <img class="object-cover object-center rounded" style="width: 720px; max-height: 600px" alt="hero" src="{{action.cover_image_url}}" onerror="this.onerror=null; this.src='https://www.littlethings.info/wp-content/uploads/2014/04/dummy-image-grey-e1398449111870.jpg';" alt="action Cover Image" class="img-responsive" />
         {% endif %}
       </div>
       <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">

@@ -14,16 +14,17 @@
     #action-media{
       width: 690px;
       height: 526px;
-    {% if action.action_order == 1 %}
-        padding: 0;
-    {% else %}
-        padding: 10% 0;
-    {% endif %}
+      padding: 10% 0%;
     }
     #action-media-and-text{
       display: flex;
       flex-direction: column;
       margin-left: 10%;
+    }
+
+    #inner-wrapper{
+      display: flex;
+      justify-content: space-between;
     }
   
     @media screen and (max-width: 768px) {
@@ -45,6 +46,9 @@
       #wrapper{
         padding-top: 5%;
       }
+      #inner-wrapper{
+        flex-direction: column;
+      }
       #working-example{
         margin-top: 10%;
         margin-bottom: 0;
@@ -58,7 +62,7 @@
   <section class="text-gray-600 body-font">
       <div id="wrapper" class="container px-5 py-24 mx-auto flex flex-wrap">
         <h1 class="title-font sm:text-4xl text-3xl mb-10 font-medium text-gray-526">{{action.action}}</h1>
-        <div class="flex flex-wrap w-full">
+        <div id="inner-wrapper">
           <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
             <div class="flex relative pb-12">
               <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
@@ -136,7 +140,7 @@
             <h2 id="working-example" class="text-gray-550 text-lg mb-4 font-medium title-font">Working Example:</h2>
             <div id="action-media-wrapper">
               <video id="action-media" controls>
-                <source src="{{action.video.url}}" type="video/mp4">
+                <source src="{{action.video_url}}" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </div>
