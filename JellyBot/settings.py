@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'random_string')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.0.198' , '.vercel.app', '*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app', '*']
 
 
 # Application definition
@@ -81,15 +81,15 @@ WSGI_APPLICATION = 'JellyBot.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 if os.environ.get('VERCEL_ENV') == 'production':
-    print('Using Production Database')
+    print('Using Vercel-Production Database')
     DATABASES = {
-        'default': {
+            'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('PGDATABASE'),
-            'USER': os.environ.get('PGUSER'),
-            'PASSWORD': os.environ.get('PGPASSWORD'),
-            'HOST': os.environ.get('PGHOST'),
-            'PORT': os.environ.get('PGPORT'),
+            'NAME': os.environ.get('POSTGRES_DATABASE'),
+            'USER': os.environ.get('POSTGRES_USER'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT'),
         }
     }
 
@@ -141,11 +141,6 @@ STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 STATIC_ROOT = '/static/'
 MEDIA_ROOT = '/media/'
-
-if os.environ.get('VERCEL_ENV') == 'production':
-    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
-    GOOGLE_APPLICATION_CREDENTIALS = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
